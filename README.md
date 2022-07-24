@@ -13,7 +13,7 @@ cd IX
 sh IX.sh
 ```
 ## Note
-You can open the programs.csv file with your preferred editor, and see if you want to add/delete
+You can open the `programs.csv` file with your preferred editor, and see if you want to add/delete
 any of the listed programs before the installation.
 
 ## References
