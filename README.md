@@ -1,5 +1,5 @@
 # IX
-This is my personal installation script for my entire Arch linux desktop.
+This is my personal installation script for my Arch linux desktop.
 
 ## Requirements
 - A fresh Arch linux install
