@@ -57,7 +57,7 @@ closingmsg() {
 
 userinfo() {
 	username=$(whiptail --title "IX Installation" --nocancel --inputbox "Please state your username." 0 0 3>&1 1>&2 2>&3 3>&1)
-	password1=$(whiptail --title "IX Installation" --nocancel --passwordbox "Please input your password" 7 40 3>&1 1>&2 2>&3 3>&1)
+	password1=$(whiptail --title "IX Installation" --nocancel --passwordbox "Please input your password." 7 40 3>&1 1>&2 2>&3 3>&1)
 	password2=$(whiptail --title "IX Installation" --nocancel --passwordbox "Retype your password to confirm." 7 40 3>&1 1>&2 2>&3 3>&1)
 
 	if [ $password1 = $password2 ]; then
