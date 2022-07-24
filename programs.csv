@@ -11,7 +11,7 @@ A,libxft-bgra
 ,zathura-ps
 ,mpv
 ,firefox
-,brave-bin
+A,brave-bin
 ,ffmpeg
 ,picom
 ,nitrogen
