@@ -94,7 +94,7 @@ create_dirs() {
 }
 
 getyay() {
-	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to get AUR packages easier." 8 60
+	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to get AUR packages more easily." 8 60
 	cd /home/$username/dox/ && sudo -u $username git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1 &&
 	cd yay && rm -r .git && sudo -u $username makepkg --noconfirm --needed -si >/dev/null 2>&1
 }
