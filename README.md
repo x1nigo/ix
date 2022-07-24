@@ -1,5 +1,5 @@
 # IX
-This is my installation script for my Arch linux desktop.
+This is my post-arch install script for my linux system.
 
 ## Requirements
 - A fresh Arch linux install
