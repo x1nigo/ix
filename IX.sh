@@ -21,7 +21,7 @@ error() {
 }
 
 prompt() {
-	whiptail --title "IX Installation" --yes-button "Hell yeah\!" --no-button "W-w-wait..." --yesno "This script requires that you have a working internet connection and that you are currently logged in as root.\n
+	whiptail --title "IX Installation" --yesno "This script requires that you have a working internet connection and that you are currently logged in as root.\n
 Do you fulfill these requirements?" 0 0
 
 	beginprompt="$?"
@@ -34,7 +34,7 @@ Do you fulfill these requirements?" 0 0
 }
 
 warning() {
-	whiptail --title "IX Installation" --yes-button "I understand." --no-button "My head hurts..." --yesno "WARNING: Use this script at your own peril.\n
+	whiptail --title "IX Installation" --yes-button "Yes, I understand." --no-button "Nope." --yesno "WARNING: Use this script at your own peril.\n
 Are you sure you want to continue?" 0 0
 
 	accept="$?"
@@ -48,11 +48,11 @@ Are you sure you want to continue?" 0 0
 
 openingmsg() {
 	whiptail --title "IX Installation" \
-		--msgbox "Welcome to the CBOS install script! This should make your life easier by automating a post-Arch install for you.\n-x1nigo" 0 0
+		--msgbox "Welcome to IX! This should make your life easier by automating a post-Arch install for you." 0 0
 }
 
 closingmsg() {
-	whiptail --title "IX Installation" --msgbox "Thank you for installing CBOS! You can now logout and log back in with your new username.\n-x1nigo" 0 0
+	whiptail --title "IX Installation" --msgbox "Thank you for installing IX! You can now logout and log back in with your new username." 0 0
 }
 
 userinfo() {
@@ -94,7 +94,7 @@ create_dirs() {
 }
 
 getyay() {
-	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to make things easier." 8 60
+	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to get AUR packages easier." 8 60
 	cd /home/$username/dox/ && sudo -u $username git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1 &&
 	cd yay && rm -r .git && sudo -u $username makepkg --noconfirm --needed -si >/dev/null 2>&1
 }
@@ -105,7 +105,7 @@ installpkgs() {
 	n=0
 	while IFS="," read -r type program
 	do
-		whiptail --title "IX Installation" --infobox "Installing program: $program ($n of $total) [$(echo "$(( $n * 100 / $total ))%")]\nThis may take a while." 8 70
+		whiptail --title "IX Installation" --infobox "Installing program: \"$program\" ($n of $total) [$(echo "$(( $n * 100 / $total ))%")]\nThis may take a while." 8 70
 		case $type in
 			A) n=$(( n + 1 )) && sudo -u $username yay --noconfirm --needed -S $program >/dev/null 2>&1 ;;
 			G) n=$(( n + 1 )) && sudo -u $username git clone https://github.com/x1nigo/$program.git >/dev/null 2>&1 ;;
@@ -115,12 +115,10 @@ installpkgs() {
 }
 
 movefiles() {
-	cd dotfiles && mkdir /usr/share/backgrounds &&
-	mv wallpapers-cb /usr/share/backgrounds &&
+	cd dotfiles &&
 	shopt -s dotglob &&
 	sudo -u $username mv .config/* /home/$username/.config/ && rm -r .config .git &&
-	sudo -u $username mv * /home/$username/ &&
-	sudo -u $username echo "startx" > /home/$username/.config/zsh/.zprofile
+	sudo -u $username mv * /home/$username/
 }
 
 updatedirs() {
