@@ -10,7 +10,6 @@ A,libxft-bgra
 ,zathura-pdf-mupdf
 ,zathura-ps
 ,mpv
-,firefox
 A,brave-bin
 ,ffmpeg
 ,picom
@@ -32,7 +31,6 @@ A,farbfeld
 ,alsa-ucm-conf
 ,sof-firmware
 ,transmission-gtk
-A,moc-pulse
 ,man-db
 ,man-pages
 ,texinfo
