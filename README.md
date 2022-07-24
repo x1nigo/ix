@@ -1,4 +1,4 @@
-# install-x1nigo
+# IX
 This is my personal installation script for my entire Arch linux desktop.
 
 ## Requirements
