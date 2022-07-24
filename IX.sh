@@ -1,0 +1,286 @@
+#! /bin/sh
+
+# Make sure that you have a working internet connection before you run this script!
+# You must be root to make all of this stuff work.
+# Also, make sure that you git clone this into your root folder (/root).
+
+getwhiptail() {
+	echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+Just making sure that everything is ready and
+that 'whiptail' is installed on your system.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+
+	pacman -Sy --noconfirm --needed libnewt # show process
+}
+
+error() {
+	echo "The user has exited the script." &&
+	exit
+}
+
+prompt() {
+	whiptail --title "IX Installation" --yes-button "Hell yeah\!" --no-button "W-w-wait..." --yesno "This script requires that you have a working internet connection and that you are currently logged in as root.\n
+Do you fulfill these requirements?" 0 0
+
+	beginprompt="$?"
+
+	if [ $beginprompt = 0 ]; then
+		echo 'begin' >/dev/null
+	elif [ $beginprompt = 1 ]; then
+		error
+	fi
+}
+
+warning() {
+	whiptail --title "IX Installation" --yes-button "I understand." --no-button "My head hurts..." --yesno "WARNING: Use this script at your own peril.\n
+Are you sure you want to continue?" 0 0
+
+	accept="$?"
+
+	if [ $accept = 0 ]; then
+		echo "let's go" >/dev/null
+	elif [ $accept = 1 ]; then
+		error
+	fi
+}
+
+openingmsg() {
+	whiptail --title "IX Installation" \
+		--msgbox "Welcome to the CBOS install script! This should make your life easier by automating a post-Arch install for you.\n-x1nigo" 0 0
+}
+
+closingmsg() {
+	whiptail --title "IX Installation" --msgbox "Thank you for installing CBOS! You can now logout and log back in with your new username.\n-x1nigo" 0 0
+}
+
+userinfo() {
+	username=$(whiptail --title "IX Installation" --nocancel --inputbox "Please state your username." 0 0 3>&1 1>&2 2>&3 3>&1)
+	password1=$(whiptail --title "IX Installation" --nocancel --passwordbox "Please input your password" 7 40 3>&1 1>&2 2>&3 3>&1)
+	password2=$(whiptail --title "IX Installation" --nocancel --passwordbox "Retype your password to confirm." 7 40 3>&1 1>&2 2>&3 3>&1)
+
+	if [ $password1 = $password2 ]; then
+		echo "passwords match" >/dev/null
+	else
+		echo "passwords do not match" && error
+	fi
+}
+
+adduser() {
+	useradd -m $username &&
+	echo $username:$password1 | chpasswd
+}
+
+permission() {
+	echo "
+# Allow this user to sudo
+$username ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+}
+
+updatekeyring() {
+	whiptail --title "IX Installation" --infobox "Updating archlinux keyring/s..." 7 60
+	pacman --noconfirm --needed -Sy archlinux-keyring >/dev/null 2>&1
+}
+
+create_dirs() {
+	sudo -u $username mkdir \
+	/home/$username/.config \
+	/home/$username/dls \
+	/home/$username/dox \
+	/home/$username/pix \
+	/home/$username/mus \
+	/home/$username/vids
+}
+
+getyay() {
+	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to make things easier." 8 60
+	cd /home/$username/dox/ && sudo -u $username git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1 &&
+	cd yay && rm -r .git && sudo -u $username makepkg --noconfirm --needed -si >/dev/null 2>&1
+}
+
+installpkgs() {
+	cd /home/$username/.config &&
+	total=$(( $(wc -l < ~/IX/programs.csv) - 1 ))
+	n=0
+	while IFS="," read -r type program
+	do
+		whiptail --title "IX Installation" --infobox "Installing program: $program ($n of $total) [$(echo "$(( $n * 100 / $total ))%")]\nThis may take a while." 8 70
+		case $type in
+			A) n=$(( n + 1 )) && sudo -u $username yay --noconfirm --needed -S $program >/dev/null 2>&1 ;;
+			G) n=$(( n + 1 )) && sudo -u $username git clone https://github.com/x1nigo/$program.git >/dev/null 2>&1 ;;
+			*) n=$(( n + 1 )) && pacman --noconfirm --needed -S $program >/dev/null 2>&1 ;;
+		esac
+	done < ~/IX/programs.csv
+}
+
+movefiles() {
+	cd dotfiles && mkdir /usr/share/backgrounds &&
+	mv wallpapers-cb /usr/share/backgrounds &&
+	shopt -s dotglob &&
+	sudo -u $username mv .config/* /home/$username/.config/ && rm -r .config .git &&
+	sudo -u $username mv * /home/$username/ &&
+	sudo -u $username echo "startx" > /home/$username/.config/zsh/.zprofile
+}
+
+updatedirs() {
+	sudo -u $username xdg-user-dirs-update
+}
+
+updateudev() {
+
+	kbd=$(ls /sys/class/leds | grep kbd_backlight)
+	cd /home/$username/.scripts/ &&
+	
+	echo "RUN+=\"/bin/chgrp $username /sys/class/backlight/intel_backlight/brightness\"
+RUN+=\"/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness\"" > /etc/udev/rules.d/backlight.rules &&
+	echo "RUN+=\"/bin/chgrp $username /sys/class/leds/$kbd/brightness\"
+RUN+=\"/bin/chmod g+w /sys/class/leds/$kbd/brightness\"" > /etc/udev/rules.d/kbd_backlight.rules &&
+	echo "Section \"InputClass\"
+	Identifier \"touchpad\"
+	Driver \"libinput\"
+	MatchIsTouchpad \"on\"
+		Option \"Tapping\" \"on\"
+		Option \"NaturalScrolling\" \"on\"
+EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf &&
+
+	sudo -u $username chmod +x * &&
+	sudo -u $username chmod -x emojis.txt
+}
+
+compilesuckless() {
+	whiptail --title "IX Installation" --infobox "Compiling Suckless Software..." 7 40
+	cd /home/$username/.config/dwm && sudo -u $username sudo make clean install >/dev/null 2>&1
+	cd ../st/ && sudo -u $username sudo make clean install >/dev/null 2>&1
+	cd ../dmenu/ && sudo -u $username sudo make clean install >/dev/null 2>&1
+	cd ../dwmblocks/ && sudo -u $username sudo make clean install >/dev/null 2>&1
+}
+
+getvimairline() {
+	whiptail --title "IX Installation" --infobox "Installing vim-airline..." 7 40
+	sudo -u $username git clone https://github.com/vim-airline/vim-airline /home/$username/.vim/bundle/vim-airline >/dev/null 2>&1 &&
+	sudo -u $username mkdir -p /home/$username/.vim/autoload /home/$username/.vim/bundle && \
+	sudo -u $username curl -LSso /home/$username/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim >/dev/null 2>&1
+}
+
+getcolor() {
+	whiptail --title "IX Installation" --infobox "Installing vim-colorizer..." 7 40
+	cd /home/$username/.vim/bundle &&
+	sudo -u $username git clone https://github.com/lilydjwg/colorizer >/dev/null 2>&1 && cd colorizer &&
+
+	sudo -u $username cp plugin/colorizer.vim /home/$username/.vim/ && sudo -u $username cp autoload/colorizer.vim /home/$username/.vim/
+}
+
+installlf() {
+	cd /home/$username/.config/lf/ &&
+	sudo -u $username sudo mv lfrun /usr/bin/lfrun && sudo -u $username sudo chmod +x /usr/bin/lfrun &&
+	sudo -u $username chmod +x /home/$username/.config/lf/cleaner /home/$username/.config/lf/preview
+}
+
+removebeep() {
+	rmmod pcspkr 2>/dev/null
+	echo "blacklist pcspkr" >/etc/modprobe.d/nobeep.conf
+}
+
+initx() {
+	sudo -u $username cp /etc/X11/xinit/xinitrc /home/$username/.xinitrc &&
+	for i in {1..5}
+	do
+		sudo -u $username sed -i '$d' /home/$username/.xinitrc
+	done
+
+	sudo -u $username echo "# Suckless's dynamic window manager
+exec dwm" >>/home/$username/.xinitrc
+}
+
+changeshell() {
+	chsh -s /bin/zsh >/dev/null 2>&1 &&
+	chsh -s /bin/zsh $username >/dev/null 2>&1
+}
+
+depower() {
+	sed -i '$d' /etc/sudoers && echo "$username ALL=(ALL:ALL) ALL" >> /etc/sudoers
+}
+
+### MAIN FUNCTION ###
+
+# First things first (Update system and make sure whiptail is installed)
+getwhiptail || error
+
+# Opening message
+openingmsg || error
+
+# Prompt
+prompt || error
+
+# Warning
+warning || error
+
+# User information
+userinfo || error
+
+# Add user and password
+adduser || error
+
+# Change permissions
+permission || error
+
+# Update archlinux keyrings
+updatekeyring || error
+
+# Create home directories
+create_dirs || error
+
+# Install yay
+getyay || error
+
+# Install packages (arch + AUR)
+installpkgs || error
+
+# Move files accordingly
+movefiles || error
+
+# Update directories
+updatedirs || error
+
+# Update udev rules
+updateudev || error
+
+# Compile every single one of them!
+compilesuckless || error
+
+# Install vim-airline
+getvimairline || error
+
+# Install vim-colorizer
+getcolor || error
+
+# Install lfimg for lf image previews
+installlf || error
+
+# Enable xinitrc
+initx || error
+
+# Make pacman pretty
+sed -i 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf &&
+sed -i 's/#Color/Color/' /etc/pacman.conf &&
+sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error
+
+# Remove beep
+removebeep || error
+
+# Remove unnecessary files and other cleaning
+rm -r ~/IX/ /home/$username/.config/dotfiles/ &&
+sudo -u $username mv /home/$username/go /home/$username/dox/ &&
+sudo -u $username mkdir /home/$username/.config/gtk-2.0 || error
+
+# Change shell to zsh
+changeshell || error
+
+# Give user normal privileges again
+depower || error
+
+# Exit message from author
+closingmsg || error
+
+exit
