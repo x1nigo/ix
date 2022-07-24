@@ -34,7 +34,7 @@ Do you fulfill these requirements?" 0 0
 }
 
 warning() {
-	whiptail --title "IX Installation" --yes-button "Yes, I understand." --no-button "Nope." --yesno "WARNING: Use this script at your own peril.\n
+	whiptail --title "IX Installation" --yes-button "Yep." --no-button "Nope." --yesno "WARNING: Use this script at your own peril.\n
 Are you sure you want to continue?" 0 0
 
 	accept="$?"
@@ -269,7 +269,7 @@ sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error
 removebeep || error
 
 # Remove unnecessary files and other cleaning
-rm -r ~/IX/ /home/$username/.config/dotfiles/ &&
+rm -r ~/IX/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir /home/$username/.config/gtk-2.0 || error
 
