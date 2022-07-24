@@ -1,5 +1,5 @@
 # IX
-This is my post-arch install script for my linux system. ***WARNING!*** This is still in its testing phase, be careful!
+This is my post-arch install script for my linux system.
 
 ## Requirements
 - A fresh Arch linux install
