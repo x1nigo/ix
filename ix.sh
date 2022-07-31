@@ -16,8 +16,7 @@ that 'whiptail' is installed on your system.
 }
 
 error() {
-	echo "The user has exited the script." &&
-	exit
+	echo "$1" && exit
 }
 
 prompt() {
@@ -203,83 +202,83 @@ depower() {
 ### MAIN FUNCTION ###
 
 # First things first (Update system and make sure whiptail is installed)
-getwhiptail || error
+getwhiptail || error "Failed to update and install whiptail."
 
 # Opening message
-openingmsg || error
+openingmsg || error "Failed to create opening message."
 
 # Prompt
-prompt || error
+prompt || error "Failed to create prompt message."
 
 # Warning
-warning || error
+warning || error "Warning message failed."
 
 # User information
-userinfo || error
+userinfo || error "Failed to collect user info."
 
 # Add user and password
-adduser || error
+adduser || error "Failed to add user and corresponding password."
 
 # Change permissions
-permission || error
+permission || error "Failed to give permissions for user."
 
 # Update archlinux keyrings
-updatekeyring || error
+updatekeyring || error "Arch linux keyring failed to update."
 
 # Create home directories
-create_dirs || error
+create_dirs || error "Could not create home directories properly."
 
 # Install yay
-getyay || error
+getyay || error "Installation of yay failed."
 
 # Install packages (arch + AUR)
-installpkgs || error
+installpkgs || error "Could not install packages."
 
 # Move files accordingly
-movefiles || error
+movefiles || error "Failed to move files accordingly."
 
 # Update directories
-updatedirs || error
+updatedirs || error "Could not update home directories with xdg-user-dirs-update."
 
 # Update udev rules
-updateudev || error
+updateudev || error "Could not update the udev rules."
 
 # Compile every single one of them!
-compilesuckless || error
+compilesuckless || error "Failed to compile all suckless software on system."
 
 # Install vim-airline
-getvimairline || error
+getvimairline || error "Could not get vim-airline."
 
 # Install vim-colorizer
-getcolor || error
+getcolor || error "Could not get vim-colorizer."
 
 # Install lfimg for lf image previews
-installlf || error
+installlf || error "Failed to install lf properly."
 
 # Enable xinitrc
-initx || error
+initx || error "Failed to enable xinitrc."
 
 # Make pacman pretty
 sed -i 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf &&
 sed -i 's/#Color/Color/' /etc/pacman.conf &&
-sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error
+sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error "Failed to edit pacman.conf fully."
 
 # Remove beep
-removebeep || error
+removebeep || error "Failed to remove the beep sound."
 
 # Remove unnecessary files and other cleaning
 rm -r ~/ix/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir /home/$username/.config/gtk-2.0 &&
-sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ || error
+sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ || error "Failed to remove unnecessary files and other cleaning."
 
 # Change shell to zsh
-changeshell || error
+changeshell || error "Could not change shell."
 
 # Give user normal privileges again
-depower || error
+depower || error "Could not bring back user from his God-like throne of sudo privilege."
 
 # Exit message from author
-closingmsg || error
+closingmsg || error "Failed to accomplish closing message."
 
 exit
