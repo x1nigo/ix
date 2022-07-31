@@ -8,9 +8,9 @@ This is my post-arch install script for my linux system.
 - Git clone this into your root directory
 
 ```
-git clone https://github.com/x1nigo/IX.git
-cd IX
-sh IX.sh
+git clone https://github.com/x1nigo/ix.git
+cd ix
+sh ix.sh
 ```
 ## Note
 You can open the `programs.csv` file with your preferred editor, and see if you want to add/delete
