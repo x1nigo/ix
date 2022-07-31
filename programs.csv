@@ -1,73 +1,72 @@
 Type,Program,Description
-A,libxft-bgra,renders BGRA glyphs and scaling
-,vi,a screen oriented text editor
-,vim,improved version of vi
-,rxvt-unicode,a VT102 emulator for the X window system
-,sxiv,simple X image viewer
-,zathura,a document viewer
-,zathura-djvu,zathura with DjVu support
-,zathura-pdf-mupdf,support for PDF and similar documents
-,zathura-ps,postscript support
-,mpv,terminal media player
-,firefox,free and open-source web browser
-,ffmpeg,a video converter
-,picom,compositor for X11
-,nitrogen,X11 background viewer and setter
-,lxappearance,a GTK+ theme switcher
-,arc-gtk-theme,a simple GTK+ theme
-A,gtk-theme-arc-gruvbox-git,arc GTK+ theme with gruvbox
-A,lf,terminal file manager
-A,ttf-ms-fonts,package of microsoft fonts
-,dunst,lightweight notification-daemon
-,pulseaudio,a sound system for audio
-,pulseaudio-alsa,alsa support for pulseaudio
-,pulseaudio-bluetooth,bluetooth support for pulseaudio
-,pulsemixer,CLI and curses mixer for pulseaudio
-,pamixer,pulseaudio command-line mixer
-,mpd,a music player daemon
-,ncmpcpp,an ncurses music player daemon client
-,mpc,command-line client for mpd
-A,farbfeld,image support for the sent program
-,alsa-firmware,firmware binaries for alsa
-,alsa-utils,utilities for alsa
-,alsa-ucm-conf,use case manager configuration for alsa
-,sof-firmware,microphone control for alsa
-,transmission-gtk,torrent client
-,man-db,utility for reading man pages
-,man-pages,conventions for writing linux man pages
-,texinfo,software documentation system
-,xorg,a X11R7 server
-,xorg-xinit,an X window system initializer
-,xlockmore,locks the local X display with pw
-,xdg-user-dirs,manage user directories
-A,gotop,terminal based graphical activity monitor
-A,sc-im,a curses based vim-like spreadsheet calculator
-,ttf-liberation,package for the liberation mono font
-,ttf-dejavu,package for the dejavu fonts
-,ttf-bitstream-vera,package for the bitstream vera fonts
-,noto-fonts,google noto fonts package
-,noto-fonts-emoji,emoji fonts
-,zsh,the Z shell
-,zsh-autosuggestions,zsh syntax completion
-,zsh-syntax-highlighting,zsh syntax colors
-,ueberzug,allows image previews in file manager
+,vi,A screen oriented text editor
+,vim,An improved version of vi
+,rxvt-unicode,A VT102 emulator for the X window system
+,sxiv,The simple X image viewer
+A,libxft-bgra,Renders BGRA glyphs and scaling
+,zathura,A document viewer (PDF)
+,zathura-djvu,Zathura with DjVu support
+,zathura-pdf-mupdf,Support for PDF and similar documents
+,zathura-ps,Postscript support
+,mpv,A terminal media player
+,firefox,Free and open-source web browser
+,ffmpeg,A video converter
+,picom,Compositor for X11
+,nitrogen,An X11 background viewer and setter
+,lxappearance,A GTK+ theme switcher
+A,gtk-theme-arc-gruvbox-git,The arc GTK+ theme with gruvbox
+A,lf,A terminal file manager
+A,ttf-ms-fonts,Package of microsoft fonts
+,dunst,Lightweight notification-daemon
+,pulseaudio,A sound system for audio
+,pulseaudio-alsa,Alsa support for pulseaudio
+,pulseaudio-bluetooth,Bluetooth support for pulseaudio
+,pulsemixer,A CLI and curses mixer for pulseaudio
+,pamixer,Pulseaudio command-line mixer
+,mpd,A music player daemon
+,ncmpcpp,An ncurses music player daemon client
+,mpc,Command-line client for mpd
+A,farbfeld,Image support for the sent program
+,alsa-firmware,Firmware binaries for alsa
+,alsa-utils,Utilities for alsa
+,alsa-ucm-conf,Use case manager configuration for alsa
+,sof-firmware,Microphone control for alsa
+,transmission-gtk,A torrent client
+,man-db,Utility for reading man pages
+,man-pages,Conventions for writing linux man pages
+,texinfo,Software documentation system
+,xorg,An X11R7 server
+,xorg-xinit,An X window system initializer
+,xlockmore,Locks the local X display with pw
+,xdg-user-dirs,Manage user directories
+A,gotop,Terminal based graphical activity monitor
+A,sc-im,A curses-based vim-like spreadsheet calculator
+,ttf-liberation,Package for the liberation mono font
+,ttf-dejavu,Package for the dejavu fonts
+,ttf-bitstream-vera,Package for the bitstream vera fonts
+,noto-fonts,The google noto fonts package
+,noto-fonts-emoji,A bunch of emoji fonts
+,zsh,The Z shell
+,zsh-autosuggestions,Zsh syntax completion
+,zsh-syntax-highlighting,Zsh syntax colors
+,ueberzug,Allows image previews in file manager
 ,poppler,PDF rendering library
-,ffmpegthumbnailer,lightweight video thumbnailer for file managers
-,imagemagick,image viewing/manipulation program
-,wkhtmltopdf,utility to convert HTML to PDF and other image files
-,bluez,daemon for bluetooth
-,bluez-utils,utilities for bluetooth
-,sysstat,utility for reporting processor related statistics
-,scrot,command-line screen capture utility
-,libnotify,library for sending desktop notifications
-,neofetch,a system info script
-,unzip,extract compressed zip files in a ZIP archive
-,xclip,basically the clipboard
-,xdotool,command-line X11 automation tool
-,bat,concatenate files with syntax highlighting
-G,dotfiles,my personal configuration files
-G,dwm,the suckless window manager
-G,st,the simple terminal
-G,dmenu,the dynamic menu
-G,sent,the simple plaintext presentation tool
-G,dwmblocks,modular status bar for dwm written in c
+,ffmpegthumbnailer,Lightweight video thumbnailer for file managers
+,imagemagick,Image viewing/manipulation program
+,wkhtmltopdf,Utility to convert HTML to PDF and other image files
+,bluez,Daemon for bluetooth
+,bluez-utils,Utilities for bluetooth
+,sysstat,Utility for reporting processor related statistics
+,scrot,Command-line screen capture utility
+,libnotify,Library for sending desktop notifications
+,neofetch,A system info script
+,unzip,Extract compressed zip files in a ZIP archive
+,xclip,Basically the clipboard
+,xdotool,Command-line X11 automation tool
+,bat,Concatenate files with syntax highlighting
+G,dotfiles,My personal configuration files
+G,dwm,The suckless window manager
+G,st,The simple terminal
+G,dmenu,The dynamic menu
+G,sent,The simple plaintext presentation tool
+G,dwmblocks,Modular status bar for dwm written in c
