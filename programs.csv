@@ -38,7 +38,7 @@ A,farbfeld,image support for the sent program
 ,xlockmore,locks the local X display with pw
 ,xdg-user-dirs,manage user directories
 A,gotop,terminal based graphical activity monitor
-A,sc-im,a curses based, vim-like spreadsheet calculator
+A,sc-im,a curses based vim-like spreadsheet calculator
 ,ttf-liberation,package for the liberation mono font
 ,ttf-dejavu,package for the dejavu fonts
 ,ttf-bitstream-vera,package for the bitstream vera fonts
