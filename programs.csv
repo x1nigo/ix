@@ -24,7 +24,7 @@ A,ttf-ms-fonts,package of microsoft fonts
 ,pulseaudio-bluetooth,bluetooth support for pulseaudio
 ,pulsemixer,CLI and curses mixer for pulseaudio
 ,pamixer,pulseaudio command line mixer
-A,farbfeld,image support for the "sent" program
+A,farbfeld,image support for the sent program
 ,alsa-firmware,firmware binaries for alsa
 ,alsa-utils,utilities for alsa
 ,alsa-ucm-conf,use case manager configuration for alsa
