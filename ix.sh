@@ -103,7 +103,7 @@ installpkgs() {
 	n=0
 	while IFS="," read -r type program description
 	do
-		whiptail --title "IX Installation" --infobox "Installing program: \`$program\` ($n of $total). $description." 8 70
+		whiptail --title "IX Installation" --infobox "Installing program: $program ($n of $total). $description." 8 70
 		case $type in
 			A) n=$(( n + 1 )) && sudo -u $username yay --noconfirm --needed -S $program >/dev/null 2>&1 ;;
 			G) n=$(( n + 1 )) && sudo -u $username git clone https://github.com/x1nigo/$program.git >/dev/null 2>&1 ;;
