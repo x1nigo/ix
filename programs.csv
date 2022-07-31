@@ -1,9 +1,9 @@
 Type,Program,Description
+A,libxft-bgra,Renders BGRA glyphs and scaling
 ,vi,A screen oriented text editor
 ,vim,An improved version of vi
 ,rxvt-unicode,A VT102 emulator for the X window system
 ,sxiv,The simple X image viewer
-A,libxft-bgra,Renders BGRA glyphs and scaling
 ,zathura,A document viewer (PDF)
 ,zathura-djvu,Zathura with DjVu support
 ,zathura-pdf-mupdf,Support for PDF and similar documents
