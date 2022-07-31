@@ -1,4 +1,5 @@
 # IX
+## Installation script for X1nigo
 This is my post-arch install script for my linux system.
 
 ## Requirements
