@@ -68,14 +68,13 @@ userinfo() {
 }
 
 adduser() {
-	useradd -m $username &&
+	useradd -m $username -g wheel
+	usermod -aG wheel $username
 	echo $username:$password1 | chpasswd
 }
 
 permission() {
-	echo "
-# Allow this user to sudo
-$username ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+	echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/wheels-can-sudo
 }
 
 updatekeyring() {
@@ -198,7 +197,7 @@ changeshell() {
 }
 
 depower() {
-	sed -i '$d' /etc/sudoers && echo "$username ALL=(ALL:ALL) ALL" >> /etc/sudoers
+	echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheels-can-sudo
 }
 
 ### MAIN FUNCTION ###
