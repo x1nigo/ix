@@ -268,7 +268,7 @@ sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error
 removebeep || error
 
 # Remove unnecessary files and other cleaning
-rm -r ~/IX/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
+rm -r ~/ix/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir /home/$username/.config/gtk-2.0 || error
 
