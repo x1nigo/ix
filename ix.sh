@@ -100,17 +100,17 @@ getyay() {
 
 installpkgs() {
 	cd /home/$username/.config &&
-	total=$(( $(wc -l < ~/IX/programs.csv) - 1 ))
+	total=$(( $(wc -l < ~/ix/programs.csv) - 1 ))
 	n=0
 	while IFS="," read -r type program description
 	do
-		whiptail --title "IX Installation" --infobox "Installing program: \"$program\" ($n of $total) $(echo "$(( $n * 100 / $total ))%") — $description" 8 70
+		whiptail --title "IX Installation" --infobox "Installing program: \`$program\` ($n of $total). $description." 8 70
 		case $type in
 			A) n=$(( n + 1 )) && sudo -u $username yay --noconfirm --needed -S $program >/dev/null 2>&1 ;;
 			G) n=$(( n + 1 )) && sudo -u $username git clone https://github.com/x1nigo/$program.git >/dev/null 2>&1 ;;
 			*) n=$(( n + 1 )) && pacman --noconfirm --needed -S $program >/dev/null 2>&1 ;;
 		esac
-	done < ~/IX/programs.csv
+	done < ~/ix/programs.csv
 }
 
 movefiles() {
