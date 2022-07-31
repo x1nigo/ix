@@ -23,7 +23,10 @@ A,ttf-ms-fonts,package of microsoft fonts
 ,pulseaudio-alsa,alsa support for pulseaudio
 ,pulseaudio-bluetooth,bluetooth support for pulseaudio
 ,pulsemixer,CLI and curses mixer for pulseaudio
-,pamixer,pulseaudio command line mixer
+,pamixer,pulseaudio command-line mixer
+,mpd,a music player daemon
+,ncmpcpp,an ncurses music player daemon client
+,mpc,command-line client for mpd
 A,farbfeld,image support for the sent program
 ,alsa-firmware,firmware binaries for alsa
 ,alsa-utils,utilities for alsa
@@ -55,12 +58,12 @@ A,sc-im,a curses based vim-like spreadsheet calculator
 ,bluez,daemon for bluetooth
 ,bluez-utils,utilities for bluetooth
 ,sysstat,utility for reporting processor related statistics
-,scrot,command line screen capture utility
+,scrot,command-line screen capture utility
 ,libnotify,library for sending desktop notifications
 ,neofetch,a system info script
 ,unzip,extract compressed zip files in a ZIP archive
 ,xclip,basically the clipboard
-,xdotool,command line X11 automation tool
+,xdotool,command-line X11 automation tool
 ,bat,concatenate files with syntax highlighting
 G,dotfiles,my personal configuration files
 G,dwm,the suckless window manager
