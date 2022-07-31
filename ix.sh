@@ -270,7 +270,10 @@ removebeep || error
 # Remove unnecessary files and other cleaning
 rm -r ~/ix/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
-sudo -u $username mkdir /home/$username/.config/gtk-2.0 || error
+sudo -u $username mkdir /home/$username/.config/gtk-2.0 &&
+sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ &&
+sudo -u $username systemctl --user enable mpd.service >/dev/null 2>&1 &&
+sudo -u $username systemctl --user start mpd.service >/dev/null 2>&1 || error
 
 # Change shell to zsh
 changeshell || error
