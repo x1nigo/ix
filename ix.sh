@@ -149,7 +149,6 @@ compilesuckless() {
 	cd /home/$username/.config/dwm && sudo -u $username sudo make clean install >/dev/null 2>&1
 	cd ../st/ && sudo -u $username sudo make clean install >/dev/null 2>&1
 	cd ../dmenu/ && sudo -u $username sudo make clean install >/dev/null 2>&1
-	cd ../sent/ && sudo -u $username sudo make clean install >/dev/null 2>&1
 	cd ../dwmblocks/ && sudo -u $username sudo make clean install >/dev/null 2>&1
 }
 
