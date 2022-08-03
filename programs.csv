@@ -23,7 +23,6 @@ A,ttf-ms-fonts,Package of microsoft fonts
 ,mpd,A music player daemon
 ,ncmpcpp,An ncurses music player daemon client
 ,mpc,Command-line client for mpd
-A,farbfeld,Image support for the sent program
 ,sof-firmware,Enables microphone control
 ,transmission-gtk,A torrent client
 ,man-db,Utility for reading man pages
@@ -56,7 +55,6 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,neofetch,A system info script
 ,unzip,Extract compressed zip files in a ZIP archive
 ,xclip,Basically the clipboard
-,xdotool,Command-line X11 automation tool
 ,bat,Concatenate files with syntax highlighting
 G,dotfiles,My personal configuration files
 G,dwm,The suckless window manager
