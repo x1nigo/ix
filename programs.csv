@@ -4,10 +4,8 @@ A,libxft-bgra,Renders BGRA glyphs and scaling
 ,vim,An improved version of vi
 ,rxvt-unicode,A VT102 emulator for the X window system
 ,sxiv,The simple X image viewer
-,zathura,A document viewer (PDF)
-,zathura-djvu,Zathura with DjVu support
+,zathura,A document viewer
 ,zathura-pdf-mupdf,Support for PDF and similar documents
-,zathura-ps,Postscript support
 ,mpv,A terminal media player
 ,firefox,Free and open-source web browser
 ,ffmpeg,A video converter
