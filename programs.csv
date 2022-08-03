@@ -17,7 +17,6 @@ A,lf,A terminal file manager
 A,ttf-ms-fonts,Package of microsoft fonts
 ,dunst,Lightweight notification-daemon
 ,pulseaudio,A sound system for audio
-,pulseaudio-alsa,Alsa support for pulseaudio
 ,pulseaudio-bluetooth,Bluetooth support for pulseaudio
 ,pulsemixer,A CLI and curses mixer for pulseaudio
 ,pamixer,Pulseaudio command-line mixer
@@ -25,10 +24,7 @@ A,ttf-ms-fonts,Package of microsoft fonts
 ,ncmpcpp,An ncurses music player daemon client
 ,mpc,Command-line client for mpd
 A,farbfeld,Image support for the sent program
-,alsa-firmware,Firmware binaries for alsa
-,alsa-utils,Utilities for alsa
-,alsa-ucm-conf,Use case manager configuration for alsa
-,sof-firmware,Microphone control for alsa
+,sof-firmware,Enables microphone control
 ,transmission-gtk,A torrent client
 ,man-db,Utility for reading man pages
 ,man-pages,Conventions for writing linux man pages
@@ -42,8 +38,7 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,gnome-keyring,Stores secrets/passwords/keys/certs for applications
 ,ttf-liberation,Package for the liberation mono font
 ,ttf-dejavu,Package for the dejavu fonts
-,ttf-bitstream-vera,Package for the bitstream vera fonts
-,noto-fonts,The google noto fonts package
+,noto-fonts,A fonts package
 ,noto-fonts-emoji,A bunch of emoji fonts
 ,zsh,The Z shell
 ,zsh-autosuggestions,Zsh syntax completion
@@ -67,5 +62,4 @@ G,dotfiles,My personal configuration files
 G,dwm,The suckless window manager
 G,st,The simple terminal
 G,dmenu,The dynamic menu
-G,sent,The simple plaintext presentation tool
 G,dwmblocks,Modular status bar for dwm written in C
