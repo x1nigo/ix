@@ -128,9 +128,9 @@ updateudev() {
 	kbd=$(ls /sys/class/leds | grep kbd_backlight)
 	cd /home/$username/.scripts/ &&
 	
-	echo "RUN+=\"/bin/chgrp $username /sys/class/backlight/intel_backlight/brightness\"
+	echo "RUN+=\"/bin/chgrp wheel /sys/class/backlight/intel_backlight/brightness\"
 RUN+=\"/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness\"" > /etc/udev/rules.d/backlight.rules &&
-	echo "RUN+=\"/bin/chgrp $username /sys/class/leds/$kbd/brightness\"
+	echo "RUN+=\"/bin/chgrp wheel /sys/class/leds/$kbd/brightness\"
 RUN+=\"/bin/chmod g+w /sys/class/leds/$kbd/brightness\"" > /etc/udev/rules.d/kbd_backlight.rules &&
 	echo "Section \"InputClass\"
 	Identifier \"touchpad\"
