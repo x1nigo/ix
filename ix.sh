@@ -152,21 +152,6 @@ compilesuckless() {
 	cd ../dwmblocks/ && sudo -u $username sudo make clean install >/dev/null 2>&1
 }
 
-getvimairline() {
-	whiptail --title "IX Installation" --infobox "Installing vim-airline..." 7 40
-	sudo -u $username git clone https://github.com/vim-airline/vim-airline /home/$username/.vim/bundle/vim-airline >/dev/null 2>&1 &&
-	sudo -u $username mkdir -p /home/$username/.vim/autoload /home/$username/.vim/bundle && \
-	sudo -u $username curl -LSso /home/$username/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim >/dev/null 2>&1
-}
-
-getcolor() {
-	whiptail --title "IX Installation" --infobox "Installing vim-colorizer..." 7 40
-	cd /home/$username/.vim/bundle &&
-	sudo -u $username git clone https://github.com/lilydjwg/colorizer >/dev/null 2>&1 && cd colorizer &&
-
-	sudo -u $username cp plugin/colorizer.vim /home/$username/.vim/ && sudo -u $username cp autoload/colorizer.vim /home/$username/.vim/
-}
-
 installlf() {
 	cd /home/$username/.config/lf/ &&
 	sudo -u $username sudo mv lfrun /usr/bin/lfrun && sudo -u $username sudo chmod +x /usr/bin/lfrun &&
@@ -244,12 +229,6 @@ updateudev || error "Could not update the udev rules."
 
 # Compile every single one of them!
 compilesuckless || error "Failed to compile all suckless software on system."
-
-# Install vim-airline
-getvimairline || error "Could not get vim-airline."
-
-# Install vim-colorizer
-getcolor || error "Could not get vim-colorizer."
 
 # Install lfimg for lf image previews
 installlf || error "Failed to install lf properly."
