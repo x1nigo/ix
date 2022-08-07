@@ -11,7 +11,7 @@ A,libxft-bgra,Renders BGRA glyphs and scaling
 ,firefox,Free and open-source web browser
 ,ffmpeg,A video converter
 ,picom,Compositor for X11
-,nitrogen,An X11 background viewer and setter
+,xwallpaper,A wallpaper setting utility for X
 ,lxappearance,A GTK+ theme switcher
 A,gtk-theme-arc-gruvbox-git,The arc GTK+ theme with gruvbox
 A,lf,A terminal file manager
