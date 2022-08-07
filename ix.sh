@@ -138,7 +138,7 @@ RUN+=\"/bin/chmod g+w /sys/class/leds/$kbd/brightness\"" > /etc/udev/rules.d/kbd
 	MatchIsTouchpad \"on\"
 		Option \"Tapping\" \"on\"
 		Option \"NaturalScrolling\" \"on\"
-EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf &&
+EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 }
 
 compilesuckless() {
