@@ -5,12 +5,14 @@
 # Also, make sure that you git clone this into your root folder (/root).
 
 getwhiptail() {
-	echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+	echo "
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
 Just making sure that everything is ready and
 that 'whiptail' is installed on your system.
 
--_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_"
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+"
 
 	pacman -Sy --noconfirm --needed libnewt # show process
 }
@@ -113,7 +115,7 @@ installpkgs() {
 }
 
 movefiles() {
-	cd dotfiles &&
+	cd unseenvillage &&
 	shopt -s dotglob &&
 	sudo -u $username mv .config/* /home/$username/.config/ && rm -r .config .git &&
 	sudo -u $username mv * /home/$username/
@@ -124,9 +126,7 @@ updatedirs() {
 }
 
 updateudev() {
-
 	kbd=$(ls /sys/class/leds | grep kbd_backlight)
-	cd /home/$username/.scripts/ &&
 	
 	echo "RUN+=\"/bin/chgrp wheel /sys/class/backlight/intel_backlight/brightness\"
 RUN+=\"/bin/chmod g+w /sys/class/backlight/intel_backlight/brightness\"" > /etc/udev/rules.d/backlight.rules &&
@@ -139,9 +139,6 @@ RUN+=\"/bin/chmod g+w /sys/class/leds/$kbd/brightness\"" > /etc/udev/rules.d/kbd
 		Option \"Tapping\" \"on\"
 		Option \"NaturalScrolling\" \"on\"
 EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf &&
-
-	sudo -u $username chmod +x * &&
-	sudo -u $username chmod -x emojis.txt
 }
 
 compilesuckless() {
@@ -161,17 +158,6 @@ installlf() {
 removebeep() {
 	rmmod pcspkr 2>/dev/null
 	echo "blacklist pcspkr" >/etc/modprobe.d/nobeep.conf
-}
-
-initx() {
-	sudo -u $username cp /etc/X11/xinit/xinitrc /home/$username/.xinitrc &&
-	for i in {1..5}
-	do
-		sudo -u $username sed -i '$d' /home/$username/.xinitrc
-	done
-
-	sudo -u $username echo "# Suckless's dynamic window manager
-exec dwm" >>/home/$username/.xinitrc
 }
 
 changeshell() {
@@ -233,9 +219,6 @@ compilesuckless || error "Failed to compile all suckless software on system."
 # Install lfimg for lf image previews
 installlf || error "Failed to install lf properly."
 
-# Enable xinitrc
-initx || error "Failed to enable xinitrc."
-
 # Make pacman pretty
 sed -i 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf &&
 sed -i 's/#Color/Color/' /etc/pacman.conf &&
@@ -245,10 +228,10 @@ sed -i '/VerbosePkgLists/a ILoveCandy' /etc/pacman.conf || error "Failed to edit
 removebeep || error "Failed to remove the beep sound."
 
 # Remove unnecessary files and other cleaning
-rm -r ~/ix/ /home/$username/.config/dotfiles/ /home/$username/README.md &&
+rm -r ~/ix/ /home/$username/.config/unseenvillage/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
-sudo -u $username mkdir /home/$username/.config/gtk-2.0 &&
-sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ || error "Failed to remove unnecessary files and other cleaning."
+sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ &&
+sudo -u $username chmod +x $HOME/.local/bin/* $HOME/.local/bin/statusbar/* || error "Failed to remove unnecessary files and other cleaning."
 
 # Change shell to zsh
 changeshell || error "Could not change shell."
