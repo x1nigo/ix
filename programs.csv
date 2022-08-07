@@ -1,8 +1,8 @@
 Type,Program,Description
 A,libxft-bgra,Renders BGRA glyphs and scaling
 ,vi,A screen oriented text editor
-,vim,improved version of vi
-,nvim,text editor based on vim for extensibility
+,vim,An improved version of vi
+,nvim,Text editor based on vim for extensibility
 ,rxvt-unicode,A VT102 emulator for the X window system
 ,sxiv,The simple X image viewer
 ,zathura,A document viewer
