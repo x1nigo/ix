@@ -231,7 +231,7 @@ removebeep || error "Failed to remove the beep sound."
 rm -r ~/ix/ /home/$username/.config/unseenvillage/ /home/$username/README.md &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ &&
-sudo -u $username chmod +x $HOME/.local/bin/* $HOME/.local/bin/statusbar/* || error "Failed to remove unnecessary files and other cleaning."
+sudo -u $username chmod +x /home/$username/.local/bin/* /home/$username/.local/bin/statusbar/* || error "Failed to remove unnecessary files and other cleaning."
 
 # Change shell to zsh
 changeshell || error "Could not change shell."
