@@ -16,11 +16,11 @@ sh ix.sh
 ```
 ## What does it install?
 Ix installs my configuration files and my other suckless software repositories:
-- [unseenvillage](https://github.com/x1nigo/unseenvillage)
-- [dwm](https://github.com/x1nigo/dwm)
-- [st](https://github.com/x1nigo/st)
-- [dmenu](https://github.com/x1nigo/dmenu)
-- [dwmblocks](https://github.com/x1nigo/dwmblocks)
+- [unseenvillage](https://github.com/x1nigo/unseenvillage) &ndash; My dotfiles
+- [dwm](https://github.com/x1nigo/dwm) &ndash; The window manager
+- [st](https://github.com/x1nigo/st) &ndash; The terminal emulator
+- [dmenu](https://github.com/x1nigo/dmenu) &ndash; The dynamic menu launcher
+- [dwmblocks](https://github.com/x1nigo/dwmblocks) &ndash; The status bar
 
 ## Note
 You can open the `programs.csv` file with your preferred editor, and see if you want to add/delete
