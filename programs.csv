@@ -24,6 +24,7 @@ A,ttf-ms-fonts,Package of microsoft fonts
 ,mpd,A music player daemon
 ,ncmpcpp,An ncurses music player daemon client
 ,mpc,Command-line client for mpd
+,newsboat,An RSS/Atom feed reader for text terminals
 ,sof-firmware,Enables microphone control
 ,transmission-gtk,A torrent client
 ,man-db,Utility for reading man pages
