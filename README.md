@@ -14,6 +14,14 @@ git clone https://github.com/x1nigo/ix.git
 cd ix
 sh ix.sh
 ```
+## What does it install?
+Ix installs my configuration files and my other suckless software repositories:
+- [unseenvillage](https://github.com/x1nigo/unseenvillage)
+- [dwm](https://github.com/x1nigo/dwm)
+- [st](https://github.com/x1nigo/st)
+- [dmenu](https://github.com/x1nigo/dmenu)
+- [dwmblocks](https://github.com/x1nigo/dwmblocks)
+
 ## Note
 You can open the `programs.csv` file with your preferred editor, and see if you want to add/delete
 any of the listed programs before the installation.
