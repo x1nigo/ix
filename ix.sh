@@ -22,7 +22,7 @@ error() {
 }
 
 prompt() {
-	whiptail --title "IX Installation" --yesno "This script requires that you have a working internet connection and that you are currently logged in as root.\n
+	whiptail --title "Ix Installation" --yesno "This script requires that you have a working internet connection and that you are currently logged in as root.\n
 Do you fulfill these requirements?" 0 0
 
 	beginprompt="$?"
@@ -35,7 +35,7 @@ Do you fulfill these requirements?" 0 0
 }
 
 warning() {
-	whiptail --title "IX Installation" --yes-button "Yep." --no-button "Nope." --yesno "WARNING: Use this script at your own peril.\n
+	whiptail --title "Ix Installation" --yes-button "Yep." --no-button "Nope." --yesno "WARNING: Use this script at your own peril.\n
 Are you sure you want to continue?" 0 0
 
 	accept="$?"
@@ -48,18 +48,18 @@ Are you sure you want to continue?" 0 0
 }
 
 openingmsg() {
-	whiptail --title "IX Installation" \
-		--msgbox "Welcome to IX! This should make your life easier by automating a post-Arch install for you." 0 0
+	whiptail --title "Ix Installation" \
+		--msgbox "Welcome to Ix! This should make your life easier by automating a post-Arch install for you." 0 0
 }
 
 closingmsg() {
-	whiptail --title "IX Installation" --msgbox "Thank you for installing IX! You can now logout and log back in with your new username." 0 0
+	whiptail --title "Ix Installation" --msgbox "Thank you for installing Ix! You can now logout and log back in with your new username." 0 0
 }
 
 userinfo() {
-	username=$(whiptail --title "IX Installation" --nocancel --inputbox "Please state your username." 0 0 3>&1 1>&2 2>&3 3>&1)
-	password1=$(whiptail --title "IX Installation" --nocancel --passwordbox "Please input your password." 7 40 3>&1 1>&2 2>&3 3>&1)
-	password2=$(whiptail --title "IX Installation" --nocancel --passwordbox "Retype your password to confirm." 7 40 3>&1 1>&2 2>&3 3>&1)
+	username=$(whiptail --title "Ix Installation" --nocancel --inputbox "Please state your username." 0 0 3>&1 1>&2 2>&3 3>&1)
+	password1=$(whiptail --title "Ix Installation" --nocancel --passwordbox "Please input your password." 7 40 3>&1 1>&2 2>&3 3>&1)
+	password2=$(whiptail --title "Ix Installation" --nocancel --passwordbox "Retype your password to confirm." 7 40 3>&1 1>&2 2>&3 3>&1)
 
 	if [ $password1 = $password2 ]; then
 		echo "passwords match" >/dev/null
@@ -79,7 +79,7 @@ permission() {
 }
 
 updatekeyring() {
-	whiptail --title "IX Installation" --infobox "Updating archlinux keyring/s..." 7 60
+	whiptail --title "Ix Installation" --infobox "Updating archlinux keyring/s..." 7 60
 	pacman --noconfirm --needed -Sy archlinux-keyring >/dev/null 2>&1
 }
 
@@ -94,7 +94,7 @@ create_dirs() {
 }
 
 getyay() {
-	whiptail --title "IX Installation" --infobox "Manually installing \"yay\" to get AUR packages more easily." 8 60
+	whiptail --title "Ix Installation" --infobox "Manually installing \"yay\" to get AUR packages more easily." 8 60
 	cd /home/$username/dox/ && sudo -u $username git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1 &&
 	cd yay && rm -r .git && sudo -u $username makepkg --noconfirm --needed -si >/dev/null 2>&1
 }
@@ -105,7 +105,7 @@ installpkgs() {
 	n=0
 	while IFS="," read -r type program description
 	do
-		whiptail --title "IX Installation" --infobox "Installing program: $program ($n of $total). $description." 8 70
+		whiptail --title "Ix Installation" --infobox "Installing program: $program ($n of $total). $description." 8 70
 		case $type in
 			A) n=$(( n + 1 )) && sudo -u $username yay --noconfirm --needed -S $program >/dev/null 2>&1 ;;
 			G) n=$(( n + 1 )) && sudo -u $username git clone https://github.com/x1nigo/$program.git >/dev/null 2>&1 ;;
@@ -142,7 +142,7 @@ EndSection" > /etc/X11/xorg.conf.d/30-touchpad.conf
 }
 
 compilesuckless() {
-	whiptail --title "IX Installation" --infobox "Compiling Suckless Software..." 7 40
+	whiptail --title "Ix Installation" --infobox "Compiling Suckless Software..." 7 40
 	cd /home/$username/.config/dwm && sudo -u $username sudo make clean install >/dev/null 2>&1
 	cd ../st/ && sudo -u $username sudo make clean install >/dev/null 2>&1
 	cd ../dmenu/ && sudo -u $username sudo make clean install >/dev/null 2>&1
