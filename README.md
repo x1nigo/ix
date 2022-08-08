@@ -15,7 +15,7 @@ cd ix
 sh ix.sh
 ```
 ## What does it install?
-Ix installs my configuration files and my other suckless software repositories:
+Aside from the programs listed in `programs.csv`, Ix installs my configuration files and my other suckless software repositories:
 - [unseenvillage](https://github.com/x1nigo/unseenvillage) &ndash; My dotfiles
 - [dwm](https://github.com/x1nigo/dwm) &ndash; The window manager
 - [st](https://github.com/x1nigo/st) &ndash; The terminal emulator
