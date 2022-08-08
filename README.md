@@ -1,10 +1,10 @@
-# Installation script for X1nigo (IX)
+# Installation script for x1nigo (Ix)
 This is my post-arch install script for my linux system.
 
 ## Requirements
 - A fresh Arch linux install
 - A working internet connection
-- Run this script as root
+- Run this script as `root`
 - Git clone this into your root directory
 
 ```
