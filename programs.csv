@@ -11,11 +11,16 @@ A,libxft-bgra,Renders BGRA glyphs and scaling
 ,firefox,Free and open-source web browser
 ,ffmpeg,A video converter
 ,picom,Compositor for X11
+,cups,An open-source printing system
+,system-config-printer,GUI for printer/s
+,hplip,Printer module for most HP printers
 ,xwallpaper,A wallpaper setting utility for X
 ,lxappearance,A GTK+ theme switcher
 A,gtk-theme-arc-gruvbox-git,The arc GTK+ theme with gruvbox
 A,lf,A terminal file manager
 A,ttf-ms-fonts,Package of microsoft fonts
+,gimp,The GNU Image Manipulation Program
+,libreoffice,An alternative to Microsoft Office
 ,dunst,Lightweight notification-daemon
 ,pulseaudio,A sound system for audio
 ,pulseaudio-bluetooth,Bluetooth support for pulseaudio
