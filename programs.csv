@@ -44,6 +44,7 @@ A,gotop,Terminal based graphical activity monitor
 A,sc-im,A curses-based vim-like spreadsheet calculator
 ,gnome-keyring,Stores secrets/passwords/keys/certs for applications
 ,ttf-bitstream-vera,Package for the bitstream vera fonts
+,ttf-jetbrains-mono, Package for the jetbrains mono fonts
 ,ttf-dejavu,Package for the dejavu fonts
 ,noto-fonts,A fonts package
 ,noto-fonts-emoji,A bunch of emoji fonts
