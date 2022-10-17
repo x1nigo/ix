@@ -9,6 +9,7 @@ A,libxft-bgra,Renders BGRA glyphs and scaling
 ,zathura-pdf-mupdf,Support for PDF and similar documents
 ,mpv,A terminal media player
 ,firefox,Free and open-source web browser
+A,brave-bin,Another free and open-source web browser
 ,ffmpeg,A video converter
 ,picom,Compositor for X11
 ,cups,An open-source printing system
