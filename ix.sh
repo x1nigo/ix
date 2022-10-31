@@ -229,6 +229,7 @@ removebeep || error "Failed to remove the beep sound."
 
 # Remove unnecessary files and other cleaning
 rm -r ~/ix/ /home/$username/.config/unseenvillage/ /home/$username/README.md &&
+sudo -u $username usermod -aG lp $username &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir /home/$username/.config/gnupg/ &&
 sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ &&
