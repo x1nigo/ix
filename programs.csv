@@ -46,7 +46,6 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,ttf-bitstream-vera,Package for the bitstream vera fonts
 ,ttf-dejavu,Package for the dejavu fonts
 ,noto-fonts,A fonts package
-,noto-fonts-emoji,A noto emoji package
 ,ttf-joypixels,A font package for emojis
 ,zsh,The Z shell
 ,zsh-autosuggestions,Zsh syntax completion
