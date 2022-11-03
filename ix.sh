@@ -166,7 +166,8 @@ changeshell() {
 }
 
 depower() {
-	echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheels-can-sudo
+	echo "%wheel ALL=(ALL:ALL) ALL
+%wheel ALL=(ALL:ALL) NOPASSWD: /usr/bin/make clean install, /usr/bin/mount, /usr/bin/umount" > /etc/sudoers.d/wheels-can-sudo
 }
 
 ### MAIN FUNCTION ###
