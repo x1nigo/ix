@@ -91,7 +91,7 @@ Server = https://mirror.pascalpuffke.de/artix-universe/\$arch
 Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/\$arch
 Server = https://mirror1.cl.netactuate.com/artix/universe/\$arch
 Server = https://ftp.crifo.org/artix-universe/" >>/etc/pacman.conf
-		pacman -Sy --noconfirm --needed -S \
+		pacman --noconfirm --needed -Sy \
 			artix-archlinux-support >/dev/null 2>&1
 		for repo in extra community; do
 			grep -q "^\[$repo\]" /etc/pacman.conf ||
