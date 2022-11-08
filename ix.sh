@@ -79,8 +79,28 @@ permission() {
 }
 
 updatekeyring() {
-	whiptail --title "Ix Installation" --infobox "Updating archlinux keyring/s..." 7 60
-	pacman --noconfirm --needed -Sy archlinux-keyring >/dev/null 2>&1
+	if ls -l /sbin/init | grep "systemd"; then
+		whiptail --title "Ix Installation" --infobox "Updating arch keyring/s..." 7 60
+		pacman --noconfirm --needed -Sy archlinux-keyring >/dev/null 2>&1
+	else
+		whiptail --title "Ix Installation" --infobox "Enabling arch repositories..." 7 60
+		echo "[universe]
+Server = https://universe.artixlinux.org/\$arch
+Server = https://mirror1.artixlinux.org/universe/\$arch
+Server = https://mirror.pascalpuffke.de/artix-universe/\$arch
+Server = https://artixlinux.qontinuum.space/artixlinux/universe/os/\$arch
+Server = https://mirror1.cl.netactuate.com/artix/universe/\$arch
+Server = https://ftp.crifo.org/artix-universe/" >>/etc/pacman.conf
+		pacman -Sy --noconfirm --needed -S \
+			artix-archlinux-support >/dev/null 2>&1
+		for repo in extra community; do
+			grep -q "^\[$repo\]" /etc/pacman.conf ||
+				echo "[$repo]
+Include = /etc/pacman.d/mirrorlist-arch" >>/etc/pacman.conf
+		done
+		pacman -Sy >/dev/null 2>&1
+		pacman-key --populate archlinux >/dev/null 2>&1
+	fi
 }
 
 create_dirs() {
@@ -230,7 +250,6 @@ removebeep || error "Failed to remove the beep sound."
 
 # Remove unnecessary files and other cleaning
 rm -r ~/ix/ /home/$username/.config/unseenvillage/ /home/$username/README.md &&
-sudo -u $username usermod -aG lp $username &&
 sudo -u $username mv /home/$username/go /home/$username/dox/ &&
 sudo -u $username mkdir /home/$username/.config/gnupg/ &&
 sudo -u $username mkdir -p /home/$username/.config/mpd/playlists/ &&
