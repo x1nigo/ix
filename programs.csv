@@ -58,6 +58,7 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,unzip,Extract compressed zip files in a ZIP archive
 ,xclip,Basically the clipboard
 ,bat,Concatenate files with syntax highlighting
+,dhcpcd,A DHCP client
 G,unseenvillage,My personal configuration files
 G,dwm,The suckless window manager
 G,st,The simple terminal
