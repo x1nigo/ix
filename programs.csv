@@ -32,7 +32,6 @@ A,ttf-ms-fonts,Package of microsoft fonts
 ,texinfo,Software documentation system
 ,xorg,An X11R7 server
 ,xorg-xinit,An X window system initializer
-,xlockmore,Locks the local X display with pw
 ,xdg-user-dirs,Manage user directories
 A,gotop,Terminal based graphical activity monitor
 A,sc-im,A curses-based vim-like spreadsheet calculator
@@ -58,6 +57,7 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,xclip,Basically the clipboard
 ,bat,Concatenate files with syntax highlighting
 ,dhcpcd,A DHCP client
+,slock,The simple X screen locker
 G,unseenvillage,My personal configuration files
 G,dwm,The suckless window manager
 G,st,The simple terminal
