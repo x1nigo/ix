@@ -60,6 +60,7 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,bat,Concatenate files with syntax highlighting
 ,dhcpcd,A DHCP client
 ,slock,The simple X screen locker
+,fzf,A command-line fuzzy finder
 G,unseenvillage,My personal configuration files
 G,dwm,The suckless window manager
 G,st,The simple terminal
