@@ -38,7 +38,6 @@ A,sc-im,A curses-based vim-like spreadsheet calculator
 ,gnome-keyring,Stores secrets/passwords/keys/certs for applications
 ,ttf-liberation,Package for the liberation fonts
 ,ttf-dejavu,Package for the dejavu fonts
-,ttf-fira-mono,Package for the fira mono fonts
 ,noto-fonts,Package for the noto fonts
 ,noto-fonts-emoji,An emoji package for noto fonts
 ,zsh,The Z shell
